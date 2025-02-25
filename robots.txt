@@ -1,0 +1,3 @@
+User-agent: *  
+Allow: /  
+Sitemap: https://aerocotton.github.io/Photography/sitemap.xml  
