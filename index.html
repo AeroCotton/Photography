@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereal Portraits</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i data-lucide="camera" class="logo-icon"></i>
+                <span>Ethereal Portraits</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Ethereal Portraits</h1>
+            <p>Capturing the essence of moments</p>
+            <a href="#contact" class="cta-button">Book a Session</a>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=1200" alt="Wedding Stories">
+                <div class="gallery-overlay">
+                    <h3>Wedding Stories</h3>
+                    <p>Capturing timeless moments of love</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200" alt="Portrait Sessions">
+                <div class="gallery-overlay">
+                    <h3>Portrait Sessions</h3>
+                    <p>Professional portraits that tell your story</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1200" alt="Fashion Photography">
+                <div class="gallery-overlay">
+                    <h3>Fashion Photography</h3>
+                    <p>Editorial and fashion photography</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&q=80&w=800" alt="Photographer">
+            </div>
+            <div class="about-content">
+                <h2>About the Artist</h2>
+                <p>With over a decade of experience in professional photography, we specialize in creating timeless portraits that capture the true essence of our subjects. Our passion lies in telling stories through images, creating memories that will last a lifetime.</p>
+                <p>Every photo session is carefully crafted to reflect your personality and style, resulting in stunning photographs that you'll cherish forever.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+                <p id="status"></p>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Let's create something beautiful together. Reach out to book a session or learn more about our services.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i data-lucide="mail"></i>
+                        <span>contact@etherealportraits.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i data-lucide="instagram"></i>
+                        <span>@etherealportraits</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    var formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzoWriF3J18whdFJKIEmdkk90PmVKj64CfQSq0yeeXMAyigSxDxm1kVHzzcHYRk6WXa/exec", {  // Replace with your actual Web App URL
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("status").innerText = "Message sent successfully!";
+        document.getElementById("contact-form").reset(); // Clear form fields
+    })
+    .catch(error => {
+        document.getElementById("status").innerText = "Failed to send message. Please try again.";
+    });
+});
+
+    </script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i data-lucide="camera"></i>
+                <span>Ethereal Portraits</span>
+            </div>
+            <div class="social-links">
+                <a href="#"><i data-lucide="instagram"></i></a>
+                <a href="#"><i data-lucide="mail"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Ethereal Portraits. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
