@@ -56,39 +56,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Form validation and submission
-    const form = document.querySelector('form');
-    const inputs = form.querySelectorAll('input, textarea');
-
-    inputs.forEach(input => {
-        input.addEventListener('invalid', (e) => {
-            e.preventDefault();
-            input.classList.add('error');
-        });
-
-        input.addEventListener('input', () => {
-            input.classList.remove('error');
-        });
-    });
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Basic form validation
-        let isValid = true;
-        inputs.forEach(input => {
-            if (!input.value.trim()) {
-                input.classList.add('error');
-                isValid = false;
-            }
-        });
-
-        if (isValid) {
-            // Add your form submission logic here
-            alert('Message sent successfully!');
-            form.reset();
-            inputs.forEach(input => input.classList.remove('error'));
-        }
-    });
 });
